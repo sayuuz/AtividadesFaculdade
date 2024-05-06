@@ -1,0 +1,57 @@
+Sub ex01()
+    Dim cabecalho() As Variant
+    Dim i As Integer
+    
+    ReDim cabecalho(1 To 4)
+
+    cabecalho(1) = "Nome"
+    cabecalho(2) = "Endereço"
+    cabecalho(3) = "Telefone"
+    cabecalho(4) = "Email"
+    
+    For i = LBound(cabecalho) To UBound(cabecalho)
+        Sheets("Planilha1").Cells(1, i).Value = cabecalho(i)
+    Next i
+End Sub
+
+Sub ex02()
+    Dim numeros() As Variant
+    Dim linha As Integer, coluna As Integer, maior As Integer
+    Dim i As Integer, x As Integer
+    
+    linha = 11
+    coluna = 2
+    maior = 0
+
+    ReDim numeros(1 To linha, 1 To coluna)
+    
+    For i = 1 To linha
+        For x = 1 To coluna
+            numeros(i, x) = Sheets("Planilha1").Cells(i + 1, x + 6).Value
+            If numeros(i, x) > maior Then
+                maior = numeros(i, x)
+            End If
+        Next x
+    Next i
+    
+    MsgBox ("Maior numero: " & maior)
+End Sub
+
+Sub ex02P()
+    Dim numeros() As Variant
+    
+    numeros = Worksheets("Planilha1").Range("G2:H12").Value
+    MsgBox "Maior número: " & WorksheetFunction.Max(numeros)
+End Sub
+
+Sub ex03()
+    Dim numeros() As Variant
+    Dim contador As Integer
+    
+    numeros = Worksheets("Planilha1").Range("G2:H12").Value
+    
+    For contador = LBound(numeros) To UBound(numeros)
+        Worksheets("Planilha1").Cells(contador + 1, 9).Value = _
+        WorksheetFunction.Average(numeros(contador, 1), numeros(contador, 2))
+    Next contador
+End Sub

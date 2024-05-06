@@ -1,0 +1,58 @@
+Sub Ex1()
+    'Criando e Atribuindo Valores as Variaveis
+    Dim var1, var2, produto As Integer
+    var1 = Range("C3")
+    var2 = Range("C4")
+    
+    'Fazendo a lógica do calculo
+    produto = var1 * var2
+    'Mostrando o resultado na planilha
+    Range("C6").Value = produto
+End Sub
+
+Sub ClearEx1()
+    Range("C6:C3").ClearContents
+End Sub
+
+Sub Ex2()
+    Dim var1, var2, var3, media As Integer
+    var1 = Range("C13")
+    var2 = Range("C14")
+    var3 = Range("C15")
+    
+    media = (var1 + var2 + var3) / 3
+    Range("C17").Value = media
+End Sub
+
+Sub ClearEx2()
+    Range("C13:C17").ClearContents
+End Sub
+
+Sub Ex3()
+    Dim var1, antecessor, sucessor As Integer
+    var1 = Range("C23")
+    
+    antecessor = var1 - 1
+    sucessor = var1 + 1
+    Range("C25").Value = antecessor
+    Range("C26").Value = sucessor
+End Sub
+
+Sub ClearEx3()
+    Range("C23:C26").ClearContents
+End Sub
+
+Sub Ex4()
+    Dim var1, var2, var3, var4, mediaponderada As Integer
+    var1 = Range("C32")
+    var2 = Range("C33")
+    var3 = Range("C34")
+    var4 = Range("C35")
+    
+    mediaponderada = ((var1 * 1) + (var2 * 2) + (var3 * 3) + (var4 * 4)) / (1 + 2 + 3 + 4)
+    Range("C37").Value = mediaponderada
+End Sub
+
+Sub ClearEx4()
+    Range("C32:C37").ClearContents
+End Sub

@@ -1,0 +1,382 @@
+Sub ex1()
+    Dim dolCot As Double
+    Dim eurCot As Double
+    Dim valor As Double
+    Dim dolCvt As Double
+    Dim eurCvt As Double
+    
+    
+    valor = InputBox("Quantos reais você vai querer converter?")
+    dolCot = InputBox("Qual é a cotação do dólar?")
+    eurCot = InputBox("Qual é a cotação do euro?")
+    
+    dolCvt = valor / dolCot
+    eurCvt = valor / eurCot
+    
+    MsgBox ("A conversão de R$" & valor & " reais para dólar ficou $" & FormatNumber(dolCvt, 2)) & Chr(13) & "A conversão de R$" & valor & " reais para euro ficou $" & FormatNumber(eurCvt, 2)
+End Sub
+
+Sub ex2()
+    Dim num1 As Double
+    Dim num2 As Double
+    Dim soma As Double
+    Dim subtracao As Double
+    Dim multiplicacao As Double
+    Dim divisao As Double
+    
+    num1 = InputBox("Digite o primeiro número")
+    
+    Do While num2 = 0
+        num2 = InputBox("Digite o segundo número")
+        If num2 = 0 Then
+            MsgBox ("Por favor digite um número diferente de 0")
+        End If
+    Loop
+    
+    soma = num1 + num2
+    subtração = num1 - num2
+    multiplicacao = num1 * num2
+    divisao = num1 / num2
+     
+    MsgBox (num1 & " + " & num2 & " = " & soma & Chr(13) _
+    & num1 & " - " & num2 & " = " & subtracao & Chr(13) _
+    & num1 & " * " & num2 & " = " & multiplicacao & Chr(13) _
+    & num1 & " / " & num2 & " = " & divisao)
+End Sub
+
+Sub ex3()
+    Dim a As Double
+    Dim pi As Double
+    Dim r As Double
+    
+    r = InputBox("Digite o valor do raio:")
+    
+    pi = 3.14159
+    a = pi * r ^ 2
+    
+    MsgBox ("A área da circunferência é: " & a)
+End Sub
+
+Sub ex4()
+    Dim n1 As Integer
+    Dim n2 As Integer
+    Dim resultado As Integer
+    
+    n1 = InputBox("Digite o primeiro valor")
+    n2 = InputBox("Digite o segundo valor")
+    
+    resultado = (n1 + n2) * (n1 + n2)
+    
+    MsgBox ("A soma do quadrado de " & n1 & " e " & n2 & " é: " & resultado)
+End Sub
+
+Sub ex5()
+    Dim valor As Double
+    Dim periodo As Double
+    Dim taxa As Double
+    Dim resultado As Double
+    
+    valor = InputBox("Digite o valor aplicado: ")
+    periodo = InputBox("Quantos períodos o valor ficou aplicado? ")
+    taxa = InputBox("Qual foi a taxa aplicada? ")
+    
+    taxa = taxa / 100
+    resultado = valor * periodo * taxa
+    
+    MsgBox ("Os juros simples do valor aplicado: R$" & resultado)
+End Sub
+
+Sub ex6()
+    Dim valor As Double
+    Dim periodo As Double
+    Dim taxa As Double
+    Dim resultado As Double
+    
+    valor = InputBox("Digite o valor aplicado: ")
+    periodo = InputBox("Quantos períodos o valor ficou aplicado? ")
+    taxa = InputBox("Qual foi a taxa aplicada? ")
+    
+    taxa = taxa / 100
+    resultado = valor * (1 + taxa) ^ periodo
+    
+    MsgBox ("Os juros do valor aplicado: R$" & resultado)
+End Sub
+
+Sub ex7()
+    Dim dia As String
+    Dim mes As String
+    Dim ano As String
+    Dim dataFormatada As String
+    
+    dia = InputBox("Digite o dia:")
+    mes = InputBox("Digite o mês:")
+    ano = InputBox("Digite o ano:")
+    
+    dataFormatada = dia & "/" & mes & "/" & ano
+    MsgBox "A data informada é: " & dataFormatada
+End Sub
+
+Sub ex8()
+    Dim candidato1 As String
+    Dim vC1 As Integer
+    Dim candidato2 As String
+    Dim vC2 As Integer
+    Dim candidato3 As String
+    Dim vC3 As Integer
+    Dim ganhador As String
+    Dim gVotos As Integer
+    
+    candidato1 = InputBox("Qual o nome do primeiro candidato?")
+    candidato2 = InputBox("Qual o nome do segundo candidato?")
+    candidato3 = InputBox("Qual o nome do terceiro candidato?")
+    
+    Do
+        vC1 = InputBox("Quantos votos o primeiro candidato teve?")
+        vC2 = InputBox("Quantos votos o segundo candidato teve?")
+        vC3 = InputBox("Quantos votos o terceiro candidato teve?")
+        If vC1 = vC2 Or vC1 = vC3 Or vC2 = vC3 Then
+            MsgBox ("Não pode haver empate!")
+        End If
+    Loop Until vC1 <> vC2 And vC1 <> vC3 And vC2 <> vC3
+    
+    ganhador = candidato1
+    gVotos = vC1
+    
+    If vC2 > gVotos Then
+        ganhador = candidato2
+        gVotos = vC2
+    End If
+    
+    If vC3 > gVotos Then
+        ganhador = candidato3
+        gVotos = vC3
+    End If
+    
+    MsgBox ("O ganhador foi o/a candidato/a " & ganhador & " com " & gVotos & " votos!")
+End Sub
+
+Sub ex9()
+    Dim escolha As Double
+    Dim n1 As Double
+    Dim n2 As Double
+    Dim resultado As Double
+    
+    escolha = InputBox("Qual operação você deseja realizar?" & Chr(13) _
+    & "1- Soma" & Chr(13) _
+    & "2- Subtração" & Chr(13) _
+    & "3- Produto" & Chr(13) _
+    & "4- Divisão")
+    
+    n1 = InputBox("Digite o primeiro valor: ")
+    n2 = InputBox("Digite o segundo valor: ")
+    
+    Select Case escolha
+        Case 1
+            resultado = n1 + n2
+            MsgBox (n1 & " + " & n2 & " = " & resultado)
+        Case 2
+            resultado = n1 - n2
+            MsgBox (n1 & " - " & n2 & " = " & resultado)
+        Case 3
+            resultado = n1 * n2
+            MsgBox (n1 & " * " & n2 & " = " & resultado)
+        Case 4
+            resultado = n1 / n2
+            MsgBox (n1 & " / " & n2 & " = " & resultado)
+    End Select
+End Sub
+
+Sub ex10()
+    Dim idade As Integer
+    Dim sexo As Integer
+    Dim salario As Double
+    Dim mediaSalario As Double
+    Dim maiorIdade As Integer
+    Dim menorIdade As Integer
+    Dim mulherSalario As Double
+    Dim counter As Integer
+    
+    maiorIdade = 0
+    menorIdade = 0
+    mulherSalario = 0
+    counter = 0
+    
+    Do
+        idade = InputBox("Qual é sua idade : (Digite 0 para encerrar o programa.)")
+        
+        If idade > 0 Then
+            sexo = InputBox("Qual é seu sexo?" & Chr(13) & "1-F" & Chr(13) & "2-M")
+            salario = InputBox("Qual é o seu salário?")
+            
+            mediaSalario = mediaSalario + salario
+            
+            If idade > maiorIdade Then
+                maiorIdade = idade
+            End If
+            
+            If idade < menorIdade Then
+                menorIdade = idade
+            End If
+            
+            If sexo = 1 And salario > 600 Then
+                mulherSalario = mulherSalario + 1
+            End If
+            
+            counter = counter + 1
+        End If
+    Loop Until idade <= 0
+    
+    mediaSalario = mediaSalario / counter
+    
+    MsgBox ("Média dos salário do grupo: R$" & mediaSalario & Chr(13) _
+    & "Maior idade do grupo: " & maiorIdade & Chr(13) _
+    & "Menor idade do grupo: " & menorIdade & Chr(13) _
+    & "Quantidade de mulheres com salário maior que 600: " & mulherSalario)
+End Sub
+
+Sub ex11()
+    Dim codigo As Integer
+    Dim quantidade As Double
+    Dim cachorroQuente As Double
+    Dim quantidadeCachorroQuente As Double
+    Dim hamburguer As Double
+    Dim quantidadeHamburguer As Double
+    Dim xTudo As Double
+    Dim quantidadexTudo As Double
+    Dim refrigerante As Double
+    Dim quantidadeRefrigerante As Double
+    Dim suco As Double
+    Dim quantidadeSuco As Double
+    Dim total As Double
+    
+    quantidadeCachorroQuente = 0
+    quantidadeHamburguer = 0
+    quantidadexTudo = 0
+    quantidadeRefrigerante = 0
+    quantidadeSuco = 0
+    
+    Do
+        codigo = InputBox("Digite o código do produto que deseja comprar." & Chr(13) & Chr(13) _
+        & "COD: 100 - Cachorro Quente - R$3,50" & Chr(13) _
+        & "COD: 101 - Hambúrguer - R$4,00" & Chr(13) _
+        & "COD: 102 - X-Tudo - R$5,00" & Chr(13) _
+        & "COD: 103 - Refrigerante - R$2,50" & Chr(13) _
+        & "COD: 104 - Suco - R$1,50" & Chr(13) & Chr(13) & "(Digite 0 para encerrar o pedido)")
+        
+        If codigo > 0 Then
+            quantidade = InputBox("Digite a quantidade: ")
+            
+            Select Case codigo
+                Case 100
+                    quantidadeCachorroQuente = quantidadeCachorroQuente + quantidade
+                Case 101
+                    quantidadeHamburguer = quantidadeHamburguer + quantidade
+                Case 102
+                    quantidadexTudo = quantidadexTudo + quantidade
+                Case 103
+                    quantidadeRefrigerante = quantidadeRefrigerante + quantidade
+                Case 104
+                    quantidadeSuco = quantidadeSuco + quantidade
+            End Select
+        End If
+    Loop Until codigo <= 0
+    
+    
+    cachorroQuente = quantidadeCachorroQuente * 3.5
+    hamburguer = quantidadeHamburguer * 4
+    xTudo = quantidadexTudo * 5
+    refrigerante = quantidadeRefrigerante * 2.5
+    suco = quantidadeSuco * 1.5
+    total = cachorroQuente + hamburguer + xTudo + refrigerante + suco
+    
+    MsgBox ("Seu pedido ficou: " & Chr(13) & Chr(13) _
+    & quantidadeCachorroQuente & " cachorro quente = R$" & cachorroQuente & Chr(13) _
+    & quantidadeHamburguer & " hambúrguer = R$" & hamburguer & Chr(13) _
+    & quantidadexTudo & " x-tudo = R$" & xTudo & Chr(13) _
+    & quantidadeRefrigerante & " refrigerante = R$" & refrigerante & Chr(13) _
+    & quantidadeSuco & " suco = R$" & suco & Chr(13) & Chr(13) _
+    & "Totalizando: R$" & total)
+End Sub
+
+Sub ex12()
+    Dim nome As String
+    Dim idade As Integer
+    Dim sexo As String
+    Dim estadoC As String
+    Dim escolha As String
+    
+    nome = InputBox("Digite seu nome completo: ")
+    idade = InputBox("Digite sua idade: ")
+    
+    escolha = InputBox("Qual seu sexo?" & Chr(13) & "M-Masculino" & Chr(13) & "F-Feminino")
+    
+    If escolha = "M" Then
+        sexo = "Masculino"
+    ElseIf escolha = "F" Then
+        sexo = "Feminino"
+    End If
+    
+    escolha = InputBox("Qual seu estado civil?" & Chr(13) & "C-Casado" & Chr(13) & "S-Solteiro" & Chr(13) & "D-Divorciado" & Chr(13) & "V-Viuvo")
+    
+    If escolha = "C" Then
+        estadoC = "Casado"
+    ElseIf escolha = "S" Then
+        estadoC = "Solteiro"
+    ElseIf escolha = "D" Then
+        estadoC = "Divorciado"
+    ElseIf escolha = "V" Then
+        estadoC = "Viuvo"
+    End If
+    
+    MsgBox ("Nome completo: " & nome & Chr(13) & "Idade: " & idade & Chr(13) & "Sexo: " & sexo & Chr(13) & "Estado civíl: " & estadoC)
+End Sub
+
+Sub ex13()
+    Dim idade As Integer
+    Dim risco As String
+    
+    idade = InputBox("Qual é  a idade?")
+    
+    If idade >= 18 And idade <= 24 Then
+        MsgBox ("Risco de venda baixo.")
+    ElseIf idade > 24 And idade <= 40 Then
+        MsgBox ("Risco de venda médio.")
+    ElseIf idade > 40 And idade <= 70 Then
+        MsgBox ("Risco de venda alto.")
+    Else
+        MsgBox ("Venda não pode ser realizada.")
+    End If
+End Sub
+
+
+Sub ex14()
+    Dim x As Integer
+    Dim y As Integer
+    Dim primo As Boolean
+    
+    For x = 0 To 50
+        primo = True
+        
+        For y = 2 To x \ 2
+            If x Mod y = 0 Then
+                primo = False
+            End If
+        Next y
+        
+        If primo Then
+            MsgBox ("O número " & x & " é Primo")
+        Else
+            MsgBox ("O número " & x & "  NÃO é Primo")
+        End If
+    Next x
+End Sub
+
+Sub ex15()
+    Dim grau As Integer
+    Dim radiano As Double
+    
+    For grau = 0 To 360 Step 5
+        radiano = grau * WorksheetFunction.pi / 180
+        MsgBox "Ângulo: " & grau & " graus = " & Format(radiano, "0.00") & " radianos"
+    Next grau
+End Sub

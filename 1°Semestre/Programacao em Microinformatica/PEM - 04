@@ -1,0 +1,150 @@
+Sub ex1()
+    Dim sexo As Integer
+    Dim altura As Double, peso As Double, pesoIdeal As Double
+    
+    Do
+        sexo = InputBox("Qual seu sexo? 1-Mulher 2-Homem")
+        If sexo <> 1 And sexo <> 2 Then
+            MsgBox ("Digite um valor válido.")
+        End If
+    Loop While sexo <> 1 And sexo <> 2
+    
+    altura = InputBox("Digite sua altura: ")
+    peso = InputBox("Digite seu peso: ")
+    
+    Select Case sexo
+        Case 1:
+            pesoIdeal = (62.1 * altura) - 44.7
+        Case 2:
+            pesoIdeal = (72.7 * altura) - 58
+    End Select
+    
+    If peso > pesoIdeal Then
+        MsgBox ("Peso ideal: " & pesoIdeal & Chr(13) & "Você está com o peso acima do ideal.")
+    Else
+        MsgBox ("Peso ideal: " & pesoIdeal & Chr(13) & "Você está com o peso normal.")
+    End If
+End Sub
+
+Sub ex2()
+    Dim cargo As Integer, tempSer As Integer, anoEntrada As Integer, anoAtual As Integer
+    Dim salario As Double, novoSalario As Double, aumento As Double
+    
+    Do
+        cargo = InputBox("Qual é seu cargo?" & Chr(13) _
+        & "1- Gerente" & Chr(13) _
+        & "2- Engenheiro" & Chr(13) _
+        & "3- Técnico" & Chr(13) _
+        & "0- Outro")
+        
+        If cargo <> 0 And cargo <> 1 And cargo <> 2 And cargo <> 3 Then
+            MsgBox ("Digite um valor válido")
+        End If
+    Loop While cargo <> 0 And cargo <> 1 And cargo <> 2 And cargo <> 3
+    
+    anoEntrada = InputBox("Qual foi seu ano de admisssão?")
+    salario = InputBox("Qual é o seu salário?")
+    
+    
+    anoAtual = Year(Date)
+    tempSer = anoAtual - anoEntrada
+    
+    
+    Select Case cargo
+        Case 0: aumento = 0.07
+        Case 1:
+            If tempSer < 3 Then
+                aumento = 0.08
+            ElseIf tempSer >= 3 And temposer < 5 Then
+                aumento = 0.09
+            Else
+                aumento = 0.1
+            End If
+        Case 2:
+            If tempSer < 3 Then
+                aumento = 0.09
+            ElseIf tempSer >= 3 And temposer < 5 Then
+                aumento = 0.1
+            Else
+                aumento = 0.11
+            End If
+        Case 3:
+            If tempSer < 3 Then
+                aumento = 0.1
+            ElseIf tempSer >= 3 And temposer < 5 Then
+                aumento = 0.11
+            Else
+                aumento = 0.12
+            End If
+    End Select
+    
+    novoSalario = salario + (salario * aumento)
+    
+    MsgBox ("Seu salário atual: R$" & salario & Chr(13) _
+    & "Porcentagem de aumento: " & aumento & "%" & Chr(13) _
+    & "Novo salário: R$" & novoSalario & Chr(13) _
+    & "Diferença de salário: R$" & novoSalario - salario)
+End Sub
+
+Sub ex03()
+    Dim salario As Double, imposto As Double
+    Dim nome As String
+
+    nome = InputBox("Digite o nome do funcionário: ")
+    salario = InputBox("Digite o salário do funcionário: R$ ")
+    
+    If salario < 1903.98 Then
+        MsgBox ("O funcionário não paga IRPF")
+    ElseIf salario >= 1903.99 And salario < 2826.65 Then
+        imposto = salario * 0.075
+        MsgBox ("A parcela a deduzir do IRPF é R$ " & imposto)
+    ElseIf salario >= 2826.66 And salario < 3751.05 Then
+        imposto = salario * 0.15
+        MsgBox ("A parcela a deduzir do IRPF é R$ " & imposto)
+    ElseIf salario >= 3751.06 And salario <= 4664.68 Then
+        imposto = salario * 0.225
+        MsgBox ("A parcela a deduzir do IRPF é R$ " & imposto)
+    ElseIf salario > 4664.68 Then
+        imposto = salario * 0.275
+        MsgBox ("A parcela a deduzir do IRPF é R$ " & imposto)
+    End If
+End Sub
+
+
+Sub ex()
+    Dim n1 As Double, n2 As Double, n3 As Double, n4 As Double, pr As Double, ed As Double, media As Double, mediaFinal As Double
+    Dim disciplina As String, nome As String, situacao As String
+    
+    nome = InputBox("Digite o nome do aluno: ")
+    disciplina = InputBox("Digite o nome da disciplina: ")
+    
+    n1 = InputBox("Digite a primeira nota")
+    n2 = InputBox("Digite a segunda nota")
+    n3 = InputBox("Digite a terceira nota")
+    n4 = InputBox("Digite a quarta nota")
+    
+    media = (n1 + n2 + n3 + n4) / 4
+    
+    pr = InputBox("Digite a nota do Provão: ")
+    ed = InputBox("Digite a nota do Estudo Dirigido: ")
+    
+    mediaFinal = (media * 0.2) + (ed * 0.2) + (pr * 0.6) / (100 / 100)
+    
+    If mediaFinal >= 6 Then
+        situacao = "APROVADO"
+    Else
+        situacao = "REPROVADO"
+    End If
+    
+    MsgBox ("Nome: " & nome & Chr(13) _
+    & "Disciplina: " & disciplina & Chr(13) _
+    & "Nota 1: " & n1 & Chr(13) _
+    & "Nota 2: " & n2 & Chr(13) _
+    & "Nota 3: " & n3 & Chr(13) _
+    & "Nota 4: " & n4 & Chr(13) _
+    & "Média das 4 notas: " & media & Chr(13) _
+    & "Nota Provão: " & pr & Chr(13) _
+    & "Nota Estudo Dirigido: " & ed & Chr(13) _
+    & "Média final do aluno: " & mediaFinal & Chr(13) _
+    & "Situação do aluno: " & situacao)
+End Sub

@@ -1,0 +1,49 @@
+Sub ex1()
+    Dim tabela(1 To 3, 1 To 3) As Integer
+    Dim l As Integer, c As Integer, wks As Worksheet
+    
+    Set wst = ThisWorkbook.Sheets("Ex1")
+    
+    tabela(1, 1) = wst.Range("A1").Value
+    tabela(1, 2) = wst.Range("B1").Value
+    tabela(1, 3) = wst.Range("C1").Value
+    tabela(2, 1) = wst.Range("A2").Value
+    tabela(2, 2) = wst.Range("B2").Value
+    tabela(2, 3) = wst.Range("C2").Value
+    tabela(3, 1) = wst.Range("A3").Value
+    tabela(3, 2) = wst.Range("B3").Value
+    tabela(3, 3) = wst.Range("C3").Value
+  
+    l = InputBox("Digite a posição da linha: ")
+    c = InputBox("Digite a posição da coluna: ")
+    
+    If l >= 1 And l <= 3 And c >= 1 And c <= 3 Then
+        MsgBox "O elemento presente na linha " & l & " e coluna " & c & " é " & tabela(l, c)
+    Else
+        MsgBox "Os valores inseridos não correspondem a nenhum valor da tabela."
+    End If
+End Sub
+
+Sub ex2()
+    Dim i As Integer
+    
+    For i = 1 To 10
+        Sheets("Ex2").Cells(i, i).Value = i
+    Next i
+End Sub
+
+Sub ex3()
+    Dim i As Integer, wst As Worksheet
+    
+    Set wst = ThisWorkbook.Sheets("Ex3")
+    
+    For i = 2 To 10
+        If wst.Cells(i, 3).Value > 15000 Then
+            wst.Cells(i, 4).Value = "Ok"
+            wst.Range(wst.Cells(i, 1), wst.Cells(i, 4)).Interior.Color = vbRed
+        End If
+    Next i
+End Sub
+
+'Resposta 4: B
+'Resposta 5: C

@@ -1,0 +1,39 @@
+Sub Ex1()
+    Dim n1 As Integer
+    
+    n1 = InputBox("Digite um número: ")
+    
+    If n1 > 20 Then
+        MsgBox ("O número digitado: " & n1 & " é maior que 20.")
+    End If
+End Sub
+
+Sub Ex2()
+    Dim resultado As Integer
+    Dim n1, n2 As Integer
+    
+    n1 = InputBox("Digite o primero valor: ")
+    n2 = InputBox("Digite o segundo valor: ")
+    
+    resultado = n1 + n2
+    
+    If resultado > 10 Then
+        MsgBox ("Somátorio de: " & n1 & " + " & n2 & " = " & resultado)
+    End If
+End Sub
+
+Sub Ex3()
+    Dim resultado As Integer
+    Dim n1, n2 As Integer
+    
+    n1 = InputBox("Digite o primero valor: ")
+    n2 = InputBox("Digite o segundo valor: ")
+    
+    resultado = n1 + n2
+    
+    If resultado > 20 Then
+        MsgBox ("Resultado: " & resultado & " + 8 = " & resultado + 8)
+    Else
+        MsgBox ("Resultado: " & resultado & " - 5 = " & resultado - 5)
+    End If
+End Sub
